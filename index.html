@@ -166,88 +166,147 @@
 
     <script>
 
-        /* =========================
-           HELLO LANGUAGES
-        ========================= */
+    /* =========================
+       HELLO LANGUAGES
+    ========================= */
 
-        const greetings = [
-            "Hello",
-            "नमस्ते",
-            "নমস্কার",
-            "નમસ્તે",
-            "ਨਮਸਕਾਰ",
-            "ନମସ୍କାର",
-            "नमस्कार",
-            "నమస్కారం",
-            "ನಮಸ್ಕಾರ",
-            "வணக்கம்",
-            "നമസ്കാരം",
-            "नमस्कार",
-            "ਸਤ ਸ੍ਰੀ ਅਕਾਲ"
-        ];
+    const greetings = [
+        "Hello",
+        "नमस्ते",
+        "নমস্কার",
+        "નમસ્તે",
+        "ਸਤ ਸ੍ਰੀ ਅਕਾਲ",
+        "ନମସ୍କାର",
+        "नमस्कार",
+        "నమస్కారం",
+        "ನಮಸ್ಕಾರ",
+        "வணக்கம்",
+        "നമസ്കാരം",
+        "नमस्कार",
+        "Hello"
+    ];
 
-        const helloElement = document.getElementById("hello");
+    const helloElement = document.getElementById("hello");
 
-        let greetingIndex = 0;
+    /* TOTAL INTRO TIME = 10 SECONDS */
+    const totalDuration = 10000;
 
-        function showNextGreeting() {
+    /* Number of greetings */
+    const totalGreetings = greetings.length;
 
-            helloElement.style.animation = "none";
+    /* Each language gets equal time */
+    const greetingDuration =
+        totalDuration / totalGreetings;
 
-            /* Force browser to restart animation */
-            void helloElement.offsetWidth;
+    let greetingIndex = 0;
 
-            helloElement.textContent = greetings[greetingIndex];
+    const startTime = performance.now();
 
-            helloElement.style.animation =
-                "helloAnimation 1.2s ease forwards";
 
-            greetingIndex++;
+    /* =========================
+       SHOW GREETING
+    ========================= */
 
-            if (greetingIndex >= greetings.length) {
-                greetingIndex = 0;
-            }
+    function showGreeting(index) {
+
+        helloElement.style.animation = "none";
+
+        /* Restart animation */
+        void helloElement.offsetWidth;
+
+        helloElement.textContent = greetings[index];
+
+        helloElement.style.animation =
+            `helloAnimation ${greetingDuration}ms ease forwards`;
+    }
+
+
+    /* =========================
+       SYNCHRONIZED INTRO
+    ========================= */
+
+    function updateIntro(currentTime) {
+
+        const elapsed =
+            currentTime - startTime;
+
+        const progress =
+            Math.min(elapsed / totalDuration, 1);
+
+
+        /* Decide which language should show */
+        let index =
+            Math.floor(progress * totalGreetings);
+
+        index =
+            Math.min(index, totalGreetings - 1);
+
+
+        /* Change language only when needed */
+        if (index !== greetingIndex) {
+            greetingIndex = index;
+            showGreeting(greetingIndex);
         }
 
-        /* Start */
-        showNextGreeting();
 
-        /* Keep changing continuously */
-        setInterval(showNextGreeting, 1200);
+        /* Continue until exactly 10 seconds */
+        if (progress < 1) {
 
+            requestAnimationFrame(updateIntro);
 
-        /* =========================
-           1 → 100 COUNTER
-           5 SECOND COUNTDOWN
-        ========================= */
+        } else {
 
-        const counterElement =
-            document.getElementById("counter");
+            /* Make sure final language is shown */
+            showGreeting(totalGreetings - 1);
 
-        const duration = 5000;
-        const startTime = performance.now();
-
-        function updateCounter(currentTime) {
-
-            const elapsed = currentTime - startTime;
-
-            const progress =
-                Math.min(elapsed / duration, 1);
-
-            const number =
-                Math.floor(progress * 100) + 1;
-
-            counterElement.textContent =
-                Math.min(number, 100);
-
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            }
+            /* Counter finishes exactly at 100 */
+            counterElement.textContent = "100";
         }
+    }
 
-        requestAnimationFrame(updateCounter);
 
-    </script>
+    /* =========================
+       COUNTER
+       1 → 100 IN EXACTLY 10 SEC
+    ========================= */
 
+    const counterElement =
+        document.getElementById("counter");
+
+    function updateCounter(currentTime) {
+
+        const elapsed =
+            currentTime - startTime;
+
+        const progress =
+            Math.min(elapsed / totalDuration, 1);
+
+        const number =
+            Math.floor(progress * 99) + 1;
+
+        counterElement.textContent =
+            Math.min(number, 100);
+
+        if (progress < 1) {
+
+            requestAnimationFrame(updateCounter);
+
+        } else {
+
+            counterElement.textContent = "100";
+        }
+    }
+
+
+    /* =========================
+       START BOTH TOGETHER
+    ========================= */
+
+    showGreeting(0);
+
+    requestAnimationFrame(updateIntro);
+    requestAnimationFrame(updateCounter);
+
+</script>
 </body>
 </html>
