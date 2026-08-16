@@ -1,9 +1,253 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tanmay Jain — Designer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: #f7f7f5;
+            color: #111111;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+
+        /* NAME */
+
+        .name {
+            position: fixed;
+            top: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            font-size: clamp(18px, 2vw, 28px);
+            font-weight: 600;
+            letter-spacing: -0.5px;
+
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        /* CENTER */
+
+        .hello-container {
+            position: fixed;
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            pointer-events: none;
+        }
+
+        .hello {
+            font-size: clamp(52px, 10vw, 150px);
+            font-weight: 600;
+            letter-spacing: -5px;
+
+            opacity: 0;
+            transform: translateY(15px);
+
+            animation: helloAnimation 1.2s ease forwards;
+        }
+
+        @keyframes helloAnimation {
+
+            0% {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            20% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+        }
+
+        /* COUNTER */
+
+        .counter {
+            position: fixed;
+            right: 28px;
+            bottom: 24px;
+
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            z-index: 10;
+        }
+
+        .counter-number {
+            font-size: 28px;
+            font-weight: 600;
+            min-width: 42px;
+            text-align: right;
+        }
+
+        .counter-total {
+            opacity: 0.45;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .name {
+                top: 22px;
+                font-size: 18px;
+            }
+
+            .hello {
+                font-size: 58px;
+                letter-spacing: -3px;
+            }
+
+            .counter {
+                right: 18px;
+                bottom: 18px;
+            }
+
+            .counter-number {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>My Portfolio</h1>
+
+    <!-- NAME -->
+    <div class="name">
+        Tanmay Jain
+    </div>
+
+    <!-- CENTER HELLO -->
+    <div class="hello-container">
+        <div class="hello" id="hello">
+            Hello
+        </div>
+    </div>
+
+    <!-- COUNTER -->
+    <div class="counter">
+        <span class="counter-number" id="counter">1</span>
+        <span class="counter-total">/ 100</span>
+    </div>
+
+
+    <script>
+
+        /* =========================
+           HELLO LANGUAGES
+        ========================= */
+
+        const greetings = [
+            "Hello",
+            "नमस्ते",
+            "নমস্কার",
+            "નમસ્તે",
+            "ਨਮਸਕਾਰ",
+            "ନମସ୍କାର",
+            "नमस्कार",
+            "నమస్కారం",
+            "ನಮಸ್ಕಾರ",
+            "வணக்கம்",
+            "നമസ്കാരം",
+            "नमस्कार",
+            "ਸਤ ਸ੍ਰੀ ਅਕਾਲ"
+        ];
+
+        const helloElement = document.getElementById("hello");
+
+        let greetingIndex = 0;
+
+        function showNextGreeting() {
+
+            helloElement.style.animation = "none";
+
+            /* Force browser to restart animation */
+            void helloElement.offsetWidth;
+
+            helloElement.textContent = greetings[greetingIndex];
+
+            helloElement.style.animation =
+                "helloAnimation 1.2s ease forwards";
+
+            greetingIndex++;
+
+            if (greetingIndex >= greetings.length) {
+                greetingIndex = 0;
+            }
+        }
+
+        /* Start */
+        showNextGreeting();
+
+        /* Keep changing continuously */
+        setInterval(showNextGreeting, 1200);
+
+
+        /* =========================
+           1 → 100 COUNTER
+           5 SECOND COUNTDOWN
+        ========================= */
+
+        const counterElement =
+            document.getElementById("counter");
+
+        const duration = 5000;
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+
+            const elapsed = currentTime - startTime;
+
+            const progress =
+                Math.min(elapsed / duration, 1);
+
+            const number =
+                Math.floor(progress * 100) + 1;
+
+            counterElement.textContent =
+                Math.min(number, 100);
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            }
+        }
+
+        requestAnimationFrame(updateCounter);
+
+    </script>
+
 </body>
 </html>
