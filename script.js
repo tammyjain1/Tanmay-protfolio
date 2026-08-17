@@ -116,20 +116,17 @@ function updateIntro(currentTime) {
             updateIntro
         );
 
-    } else {
+      } else {
 
         counterElement.textContent =
             "100";
 
 
-        setTimeout(function () {
-
-            window.location.href =
-                "home.html";
-
-        }, 400);
+        window.location.href =
+            "home.html";
 
     }
+
 
 }
 
