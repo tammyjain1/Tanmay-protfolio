@@ -81,7 +81,7 @@ body {
     top: 28px;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform: translate(-50%, -60px);
 
     font-size: clamp(22px, 2.2vw, 36px);
 
@@ -90,6 +90,26 @@ body {
     white-space: nowrap;
 
     z-index: 10;
+
+    opacity: 0;
+
+    animation: nameDrop 0.8s ease forwards;
+    animation-delay: 0.15s;
+}
+
+@keyframes nameDrop {
+
+    0% {
+        opacity: 0;
+
+        transform: translate(-50%, -60px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translate(-50%, 0);
+    }
 }
 
 
