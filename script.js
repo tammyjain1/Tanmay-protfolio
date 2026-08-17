@@ -1,32 +1,22 @@
-/* =========================
-   GREETINGS
-========================= */
-
 const greetings = [
 
     "Hello",
     "नमस्ते",
     "नमस्कार",
     "ਸਤ ਸ੍ਰੀ ਅਕਾਲ",
-    "नमस्कार",
-    "કેમ છો",
+    "નમસ્તે",
     "নমস্কার",
     "ଓଡ଼ିଆ ନମସ୍କାର",
     "నమస్కారం",
     "ನಮಸ್ಕಾರ",
     "வணக்கம்",
     "നമസ്കാരം",
-    "ನಮಸ್ಕಾರ",
     "मरहबा",
     "السلام عليكم",
     "Hello"
 
 ];
 
-
-/* =========================
-   ELEMENTS
-========================= */
 
 const greetingElement =
     document.getElementById("greeting");
@@ -35,28 +25,22 @@ const counterElement =
     document.getElementById("counter");
 
 
-/* =========================
-   SETTINGS
-========================= */
+/*
+    COMPLETE INTRO = 7 SECONDS
+*/
 
-const totalDuration = 7000; // 7 seconds
-
-
-/* =========================
-   START TIME
-========================= */
-
-const startTime = performance.now();
+const totalDuration = 7000;
 
 
-/* =========================
-   ANIMATION
-========================= */
+const startTime =
+    performance.now();
+
 
 function updateIntro(currentTime) {
 
     const elapsed =
         currentTime - startTime;
+
 
     const progress =
         Math.min(
@@ -65,9 +49,9 @@ function updateIntro(currentTime) {
         );
 
 
-    /* =========================
-       GREETING
-    ========================= */
+    /*
+        GREETING
+    */
 
     const greetingIndex =
         Math.min(
@@ -86,33 +70,45 @@ function updateIntro(currentTime) {
         greetingElement.dataset.index =
             String(greetingIndex);
 
+
         greetingElement.textContent =
             greetings[greetingIndex];
 
-        greetingElement.classList.remove("show");
+
+        greetingElement.classList.remove(
+            "show"
+        );
+
 
         void greetingElement.offsetWidth;
 
-        greetingElement.classList.add("show");
+
+        greetingElement.classList.add(
+            "show"
+        );
     }
 
 
-    /* =========================
-       COUNTER
-    ========================= */
+    /*
+        COUNTER
+    */
 
     const number =
         Math.min(
-            Math.floor(progress * 100) + 1,
+            Math.floor(
+                progress * 100
+            ) + 1,
             100
         );
 
-    counterElement.textContent = number;
+
+    counterElement.textContent =
+        number;
 
 
-    /* =========================
-       CONTINUE
-    ========================= */
+    /*
+        CONTINUE
+    */
 
     if (progress < 1) {
 
@@ -122,16 +118,13 @@ function updateIntro(currentTime) {
 
     } else {
 
-        counterElement.textContent = "100";
+        counterElement.textContent =
+            "100";
 
-        greetingElement.textContent =
-            greetings[greetings.length - 1];
     }
 }
 
 
-/* =========================
-   START
-========================= */
-
-requestAnimationFrame(updateIntro);
+requestAnimationFrame(
+    updateIntro
+);
