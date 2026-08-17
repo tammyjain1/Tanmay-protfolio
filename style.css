@@ -203,7 +203,10 @@ body {
 }
 
 
-/* PHONE */
+/* =========================
+   RESPONSIVE — PHONE
+========================= */
+
 @media (max-width: 600px) {
 
     .photo {
@@ -231,7 +234,11 @@ body {
     }
 }
 
-/* TABLET */
+
+/* =========================
+   RESPONSIVE — TABLET (iPad etc.)
+========================= */
+
 @media (min-width: 601px) and (max-width: 1024px) {
 
     .photo {
@@ -239,7 +246,11 @@ body {
     }
 }
 
-/* LAPTOP / DESKTOP */
+
+/* =========================
+   RESPONSIVE — LAPTOP / DESKTOP
+========================= */
+
 @media (min-width: 1025px) {
 
     .photo {
