@@ -1,317 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Tanmay Jain — Designer</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-        }
-
-         body {
-    background-color: #000;
-    background-image: url("tanmay-bg.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-}
-
-        /* NAME */
-
-        .name {
-            position: fixed;
-            top: 28px;
-            left: 50%;
-            transform: translateX(-50%);
-
-            font-size: clamp(18px, 2vw, 28px);
-            font-weight: 600;
-            letter-spacing: -0.5px;
-
-            z-index: 10;
-            white-space: nowrap;
-        }
-
-        /* CENTER */
-
-        .hello-container {
-            position: fixed;
-            inset: 0;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            pointer-events: none;
-        }
-
-        .hello {
-            font-size: clamp(52px, 10vw, 150px);
-            font-weight: 600;
-            letter-spacing: -5px;
-
-            opacity: 0;
-            transform: translateY(15px);
-
-            animation: helloAnimation 1.2s ease forwards;
-        }
-
-        @keyframes helloAnimation {
-
-            0% {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            20% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            80% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            100% {
-                opacity: 0;
-                transform: translateY(-15px);
-            }
-        }
-
-        /* COUNTER */
-
-        .counter {
-            position: fixed;
-            right: 28px;
-            bottom: 24px;
-
-            display: flex;
-            align-items: baseline;
-            gap: 4px;
-
-            font-size: 14px;
-            font-weight: 500;
-
-            z-index: 10;
-        }
-
-        .counter-number {
-            font-size: 28px;
-            font-weight: 600;
-            min-width: 42px;
-            text-align: right;
-        }
-
-        .counter-total {
-            opacity: 0.45;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
-            .name {
-                top: 22px;
-                font-size: 18px;
-            }
-
-            .hello {
-                font-size: 58px;
-                letter-spacing: -3px;
-            }
-
-            .counter {
-                right: 18px;
-                bottom: 18px;
-            }
-
-            .counter-number {
-                font-size: 24px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- NAME -->
     <div class="name">
         Tanmay Jain
     </div>
 
-    <!-- CENTER HELLO -->
-    <div class="hello-container">
-        <div class="hello" id="hello">
-            Hello
-        </div>
+    <div
+        class="greeting"
+        id="greeting"
+    >
+        Hello
     </div>
 
-    <!-- COUNTER -->
     <div class="counter">
-        <span class="counter-number" id="counter">1</span>
-        <span class="counter-total">/ 100</span>
+
+        <span id="counter">
+            1
+        </span>
+
+        <span class="total">
+            / 100
+        </span>
+
     </div>
 
+    <script src="script.js"></script>
 
-    <script>
-
-    /* =========================
-       HELLO LANGUAGES
-    ========================= */
-
-    const greetings = [
-        "Hello",
-        "नमस्ते",
-        "নমস্কার",
-        "નમસ્તે",
-        "ਸਤ ਸ੍ਰੀ ਅਕਾਲ",
-        "ନମସ୍କାର",
-        "नमस्कार",
-        "నమస్కారం",
-        "ನಮಸ್ಕಾರ",
-        "வணக்கம்",
-        "നമസ്കാരം",
-        "नमस्कार",
-        "Hello"
-    ];
-
-    const helloElement = document.getElementById("hello");
-
-    /* TOTAL INTRO TIME = 10 SECONDS */
-    const totalDuration = 7000;
-
-    /* Number of greetings */
-    const totalGreetings = greetings.length;
-
-    /* Each language gets equal time */
-    const greetingDuration =
-        totalDuration / totalGreetings;
-
-    let greetingIndex = 0;
-
-    const startTime = performance.now();
-
-
-    /* =========================
-       SHOW GREETING
-    ========================= */
-
-    function showGreeting(index) {
-
-        helloElement.style.animation = "none";
-
-        /* Restart animation */
-        void helloElement.offsetWidth;
-
-        helloElement.textContent = greetings[index];
-
-        helloElement.style.animation =
-            `helloAnimation ${greetingDuration}ms ease forwards`;
-    }
-
-
-    /* =========================
-       SYNCHRONIZED INTRO
-    ========================= */
-
-    function updateIntro(currentTime) {
-
-        const elapsed =
-            currentTime - startTime;
-
-        const progress =
-            Math.min(elapsed / totalDuration, 1);
-
-
-        /* Decide which language should show */
-        let index =
-            Math.floor(progress * totalGreetings);
-
-        index =
-            Math.min(index, totalGreetings - 1);
-
-
-        /* Change language only when needed */
-        if (index !== greetingIndex) {
-            greetingIndex = index;
-            showGreeting(greetingIndex);
-        }
-
-
-        /* Continue until exactly 10 seconds */
-        if (progress < 1) {
-
-            requestAnimationFrame(updateIntro);
-
-        } else {
-
-            /* Make sure final language is shown */
-            showGreeting(totalGreetings - 1);
-
-            /* Counter finishes exactly at 100 */
-            counterElement.textContent = "100";
-        }
-    }
-
-
-    /* =========================
-       COUNTER
-       1 → 100 IN EXACTLY 10 SEC
-    ========================= */
-
-    const counterElement =
-        document.getElementById("counter");
-
-    function updateCounter(currentTime) {
-
-        const elapsed =
-            currentTime - startTime;
-
-        const progress =
-            Math.min(elapsed / totalDuration, 1);
-
-        const number =
-            Math.floor(progress * 99) + 1;
-
-        counterElement.textContent =
-            Math.min(number, 100);
-
-        if (progress < 1) {
-
-            requestAnimationFrame(updateCounter);
-
-        } else {
-
-            counterElement.textContent = "100";
-        }
-    }
-
-
-    /* =========================
-       START BOTH TOGETHER
-    ========================= */
-
-    showGreeting(0);
-
-    requestAnimationFrame(updateIntro);
-    requestAnimationFrame(updateCounter);
-
-</script>
 </body>
+
 </html>
