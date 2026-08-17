@@ -37,7 +37,8 @@ body {
 
     transform: translateX(-50%);
 
-    width: min(60vw, 900px);
+    height: 92vh;
+    width: auto;
 
     z-index: 0;
 
@@ -47,8 +48,10 @@ body {
 .photo img {
     display: block;
 
-    width: 100%;
-    height: auto;
+    height: 100%;
+    width: auto;
+
+    max-width: none;
 }
 
 
