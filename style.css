@@ -21,8 +21,13 @@ body {
         ),
         url("profile.png");
 
+    /*
+       IMAGE POSITION
+       50% = horizontal center
+       120px = vertical position
+    */
     background-size: 100% auto;
-    background-position: center 120px;
+    background-position: calc(50% + 25px) 120px;
     background-repeat: no-repeat;
 
     background-color: #000;
@@ -35,7 +40,10 @@ body {
         sans-serif;
 }
 
-/* NAME */
+
+/* =========================
+   NAME
+========================= */
 
 .name {
     position: absolute;
@@ -55,7 +63,9 @@ body {
 }
 
 
-/* GREETING */
+/* =========================
+   GREETING
+========================= */
 
 .greeting {
     position: absolute;
@@ -83,7 +93,9 @@ body {
 }
 
 
-/* GREETING ANIMATION */
+/* =========================
+   GREETING ANIMATION
+========================= */
 
 .greeting.show {
     animation: greetingIn 0.35s ease;
@@ -109,7 +121,9 @@ body {
 }
 
 
-/* COUNTER */
+/* =========================
+   COUNTER
+========================= */
 
 .counter {
     position: absolute;
@@ -137,9 +151,20 @@ body {
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE / iPAD
+========================= */
 
 @media (max-width: 600px) {
+
+    body {
+        /*
+           Mobile par image ko
+           thoda right shift karna hai
+        */
+        background-size: 110% auto;
+        background-position: calc(50% + 20px) 100px;
+    }
 
     .name {
         top: 22px;
