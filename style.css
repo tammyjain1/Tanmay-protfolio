@@ -1,17 +1,8 @@
-/* =========================
-   RESET
-========================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
-/* =========================
-   PAGE
-========================= */
 
 html,
 body {
@@ -29,7 +20,7 @@ body {
             rgba(0, 0, 0, 0.35),
             rgba(0, 0, 0, 0.35)
         ),
-        url("profile.jpg");
+        url("profile.png");
 
     background-size: cover;
     background-position: center;
@@ -46,9 +37,7 @@ body {
 }
 
 
-/* =========================
-   NAME
-========================= */
+/* NAME */
 
 .name {
     position: absolute;
@@ -68,9 +57,7 @@ body {
 }
 
 
-/* =========================
-   GREETING
-========================= */
+/* GREETING */
 
 .greeting {
     position: absolute;
@@ -98,9 +85,7 @@ body {
 }
 
 
-/* =========================
-   GREETING ANIMATION
-========================= */
+/* GREETING ANIMATION */
 
 .greeting.show {
     animation: greetingIn 0.35s ease;
@@ -110,6 +95,7 @@ body {
 
     0% {
         opacity: 0;
+
         transform:
             translate(-50%, -50%)
             scale(0.96);
@@ -117,6 +103,7 @@ body {
 
     100% {
         opacity: 1;
+
         transform:
             translate(-50%, -50%)
             scale(1);
@@ -124,9 +111,7 @@ body {
 }
 
 
-/* =========================
-   COUNTER
-========================= */
+/* COUNTER */
 
 .counter {
     position: absolute;
@@ -135,7 +120,9 @@ body {
     bottom: 25px;
 
     display: flex;
+
     align-items: baseline;
+
     gap: 5px;
 
     z-index: 10;
@@ -152,9 +139,7 @@ body {
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -163,16 +148,19 @@ body {
     }
 
     .greeting {
+
         width: 95%;
 
-        font-size: clamp(
-            38px,
-            12vw,
-            75px
-        );
+        font-size:
+            clamp(
+                38px,
+                12vw,
+                75px
+            );
     }
 
     .counter {
+
         right: 18px;
         bottom: 18px;
     }
