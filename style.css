@@ -183,14 +183,11 @@ body {
 }
 
 
-/* =========================
-   RESPONSIVE — PHONE
-========================= */
-
+/* PHONE */
 @media (max-width: 600px) {
 
     .photo {
-        width: min(95vw, 500px);
+        height: 78vh;
     }
 
     .name {
@@ -214,26 +211,18 @@ body {
     }
 }
 
-
-/* =========================
-   RESPONSIVE — TABLET (iPad etc.)
-========================= */
-
+/* TABLET */
 @media (min-width: 601px) and (max-width: 1024px) {
 
     .photo {
-        width: min(75vw, 700px);
+        height: 85vh;
     }
 }
 
-
-/* =========================
-   RESPONSIVE — LAPTOP / DESKTOP
-========================= */
-
+/* LAPTOP / DESKTOP */
 @media (min-width: 1025px) {
 
     .photo {
-        width: min(50vw, 900px);
+        height: 92vh;
     }
 }
