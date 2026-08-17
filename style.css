@@ -12,7 +12,6 @@ body {
 
 body {
     position: relative;
-
     overflow: hidden;
 
     background:
@@ -23,9 +22,11 @@ body {
         url("profile.png");
 
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 
+    /* IMAGE POSITION */
+    background-position: center 30%;
+
+    background-repeat: no-repeat;
     background-color: #000;
 
     color: #fff;
@@ -148,7 +149,6 @@ body {
     }
 
     .greeting {
-
         width: 95%;
 
         font-size:
@@ -160,7 +160,6 @@ body {
     }
 
     .counter {
-
         right: 18px;
         bottom: 18px;
     }
