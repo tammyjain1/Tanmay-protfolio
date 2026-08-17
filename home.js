@@ -1,6 +1,35 @@
 const video =
     document.getElementById("bg-video");
 
+
+/*
+    PICK VIDEO BASED ON SCREEN SIZE
+*/
+
+const isPhone =
+    window.matchMedia(
+        "(max-width: 600px)"
+    ).matches;
+
+
+video.src =
+    isPhone
+        ? "video-portrait.mp4"
+        : "video-landscape.mp4";
+
+
+video.load();
+
+video.play().catch(function () {
+
+    /*
+        Agar autoplay block ho
+        (rare on iOS), silently ignore
+    */
+
+});
+
+
 const hamburger =
     document.getElementById("hamburger");
 
@@ -51,3 +80,4 @@ hamburger.addEventListener(
 
     }
 );
+
