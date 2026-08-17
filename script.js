@@ -4,13 +4,13 @@ const greetings = [
     "नमस्ते",
     "नमस्कार",
     "ਸਤ ਸ੍ਰੀ ਅਕਾਲ",
-    "નમસ્ત",
+    "નમસ્તે",
     "নমস্কার",
-    "ଓଡ଼ିଆ ନମସର",
+    "ଓଡ଼ିଆ ନମସ୍କାର",
     "నమస్కారం",
     "ನಮಸ್ಕಾರ",
     "வணக்கம்",
-    "നമസ്കാരം",
+    "നമസ്കാര",
     "मरहबा",
     "السلام عليكم",
     "Hello"
@@ -116,7 +116,7 @@ function updateIntro(currentTime) {
             updateIntro
         );
 
-        } else {
+    } else {
 
         counterElement.textContent =
             "100";
@@ -131,6 +131,7 @@ function updateIntro(currentTime) {
 
     }
 
+}
 
 
 requestAnimationFrame(
