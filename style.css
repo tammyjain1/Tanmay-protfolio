@@ -14,21 +14,6 @@ body {
     position: relative;
     overflow: hidden;
 
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.35),
-            rgba(0, 0, 0, 0.35)
-        ),
-        url("profile.png");
-
-    /* PHOTO */
-    background-size: 100% auto;
-
-    /* PHOTO KO RIGHT SHIFT KIYA */
-    background-position: calc(50% + 55px) 120px;
-
-    background-repeat: no-repeat;
-
     background-color: #000;
 
     color: #fff;
@@ -41,11 +26,46 @@ body {
 
 
 /* =========================
+   PHOTO
+========================= */
+
+.photo {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 15%;
+
+    display: block;
+}
+
+
+/* =========================
+   DARK OVERLAY
+========================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    z-index: 1;
+}
+
+
+/* =========================
    NAME
 ========================= */
 
 .name {
-    position: absolute;
+    position: fixed;
 
     top: 28px;
     left: 50%;
@@ -67,9 +87,9 @@ body {
 ========================= */
 
 .greeting {
-    position: absolute;
+    position: fixed;
 
-    top: 50%;
+    top: 46%;
     left: 50%;
 
     transform: translate(-50%, -50%);
@@ -89,6 +109,8 @@ body {
     z-index: 10;
 
     opacity: 1;
+
+    text-shadow: 0 6px 40px rgba(0, 0, 0, 0.75);
 }
 
 
@@ -125,7 +147,7 @@ body {
 ========================= */
 
 .counter {
-    position: absolute;
+    position: fixed;
 
     right: 28px;
     bottom: 25px;
@@ -151,16 +173,13 @@ body {
 
 
 /* =========================
-   MOBILE / iPAD
+   RESPONSIVE — PHONE
 ========================= */
 
 @media (max-width: 600px) {
 
-    body {
-        background-size: 110% auto;
-
-        /* MOBILE PHOTO RIGHT SHIFT */
-        background-position: calc(50% + 45px) 100px;
+    .photo img {
+        object-position: center 8%;
     }
 
     .name {
@@ -169,6 +188,7 @@ body {
 
     .greeting {
         width: 95%;
+        top: 42%;
 
         font-size:
             clamp(
@@ -181,5 +201,33 @@ body {
     .counter {
         right: 18px;
         bottom: 18px;
+    }
+}
+
+
+/* =========================
+   RESPONSIVE — TABLET (iPad etc.)
+========================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .photo img {
+        object-position: center 12%;
+    }
+
+    .greeting {
+        top: 44%;
+    }
+}
+
+
+/* =========================
+   RESPONSIVE — LAPTOP / DESKTOP
+========================= */
+
+@media (min-width: 1025px) {
+
+    .photo img {
+        object-position: center 18%;
     }
 }
