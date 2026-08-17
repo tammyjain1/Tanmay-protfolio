@@ -26,10 +26,10 @@ const counterElement =
 
 
 /*
-    COMPLETE INTRO = 7 SECONDS
+    COMPLETE INTRO = 4 SECONDS
 */
 
-const totalDuration = 7000;
+const totalDuration = 4000;
 
 
 const startTime =
