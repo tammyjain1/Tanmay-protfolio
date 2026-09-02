@@ -20,7 +20,7 @@
 
     <div class="boot" id="boot">
         <div class="boot-line" data-text="establishing connection"></div>
-        <div class="boot-line" data-text="loading profile: Tanmay Jain"></div>
+        <div class="boot-line" data-text="loading profile: tanmay jain"></div>
         <div class="boot-line" data-text="rendering interface"></div>
         <div class="boot-bar"><div class="boot-bar-fill" id="bootFill"></div></div>
     </div>
@@ -34,7 +34,7 @@
 
         <div class="rail-top">
             <a href="#" class="rail-logo" data-panel-link="home">
-                Tanmay Jain<span>®</span>
+                TJ<span>®</span>
             </a>
             <span class="rail-tag">Portfolio / 2026</span>
         </div>
@@ -51,6 +51,9 @@
             </button>
             <button class="rail-item" data-panel-link="skills">
                 <span class="rail-dot"></span> Skills
+            </button>
+            <button class="rail-item" data-panel-link="certificates">
+                <span class="rail-dot"></span> Certificates
             </button>
             <button class="rail-item" data-panel-link="contact">
                 <span class="rail-dot"></span> Contact
@@ -163,71 +166,199 @@
                 <h2>Things I've built.</h2>
             </div>
 
-            <div class="work-grid">
+            <div class="work-filters" id="workFilters">
+                <button class="filter-chip active" data-filter="all">All</button>
+                <button class="filter-chip" data-filter="website">Websites</button>
+                <button class="filter-chip" data-filter="marketing">Digital Marketing</button>
+                <button class="filter-chip" data-filter="photo">Photo Editing</button>
+                <button class="filter-chip" data-filter="video">Video Editing</button>
+            </div>
 
-                <article class="work-card size-lg" data-tag="green"
-                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+            <div class="work-grid" id="workGrid">
+
+                <!-- WEBSITES -->
+
+                <article class="work-card size-lg" data-category="website" data-tag="green"
+                    data-title="[Website name]" data-desc="[What this site was for, who it was built for, and the stack you used.]">
                     <div class="work-card-top">
-                        <span class="tag tag-green">Web Design</span>
+                        <span class="tag tag-green">Website</span>
                         <span class="work-arrow">↗</span>
                     </div>
                     <div class="work-card-visual visual-a"></div>
                     <div class="work-card-info">
-                        <h3>[Project name]</h3>
-                        <p>[Short one-line description]</p>
+                        <h3>[Website name]</h3>
+                        <p>[One line about it]</p>
                     </div>
                 </article>
 
-                <article class="work-card size-sm" data-tag="red"
-                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+                <article class="work-card size-sm" data-category="website" data-tag="green"
+                    data-title="[Website name]" data-desc="[What this site was for, who it was built for, and the stack you used.]">
                     <div class="work-card-top">
-                        <span class="tag tag-red">Brand Identity</span>
+                        <span class="tag tag-green">Website</span>
                         <span class="work-arrow">↗</span>
                     </div>
                     <div class="work-card-visual visual-b"></div>
                     <div class="work-card-info">
-                        <h3>[Project name]</h3>
-                        <p>[Short one-line description]</p>
+                        <h3>[Website name]</h3>
+                        <p>[One line about it]</p>
                     </div>
                 </article>
 
-                <article class="work-card size-sm" data-tag="purple"
-                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+                <article class="work-card size-sm" data-category="website" data-tag="green"
+                    data-title="[Website name]" data-desc="[What this site was for, who it was built for, and the stack you used.]">
                     <div class="work-card-top">
-                        <span class="tag tag-purple">Web App</span>
+                        <span class="tag tag-green">Website</span>
                         <span class="work-arrow">↗</span>
                     </div>
                     <div class="work-card-visual visual-c"></div>
                     <div class="work-card-info">
-                        <h3>[Project name]</h3>
-                        <p>[Short one-line description]</p>
+                        <h3>[Website name]</h3>
+                        <p>[One line about it]</p>
                     </div>
                 </article>
 
-                <article class="work-card size-md" data-tag="green"
-                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+                <article class="work-card size-sm" data-category="website" data-tag="green"
+                    data-title="[Website name]" data-desc="[What this site was for, who it was built for, and the stack you used.]">
                     <div class="work-card-top">
-                        <span class="tag tag-green">Social / Content</span>
+                        <span class="tag tag-green">Website</span>
                         <span class="work-arrow">↗</span>
                     </div>
                     <div class="work-card-visual visual-d"></div>
                     <div class="work-card-info">
-                        <h3>[Project name]</h3>
-                        <p>[Short one-line description]</p>
+                        <h3>[Website name]</h3>
+                        <p>[One line about it]</p>
                     </div>
                 </article>
 
-                <article class="work-card size-md" data-tag="purple"
-                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+                <article class="work-card size-sm" data-category="website" data-tag="green"
+                    data-title="[Website name]" data-desc="[What this site was for, who it was built for, and the stack you used.]">
                     <div class="work-card-top">
-                        <span class="tag tag-purple">Motion</span>
+                        <span class="tag tag-green">Website</span>
                         <span class="work-arrow">↗</span>
                     </div>
                     <div class="work-card-visual visual-e"></div>
                     <div class="work-card-info">
-                        <h3>[Project name]</h3>
-                        <p>[Short one-line description]</p>
+                        <h3>[Website name]</h3>
+                        <p>[One line about it]</p>
                     </div>
+                </article>
+
+                <!-- DIGITAL MARKETING -->
+
+                <article class="work-card size-md" data-category="marketing" data-tag="red"
+                    data-title="[Client / brand name]" data-desc="[What you did for them — platforms, campaigns, and the result you drove.]">
+                    <div class="work-card-top">
+                        <span class="tag tag-red">Digital Marketing</span>
+                        <span class="work-arrow">↗</span>
+                    </div>
+                    <div class="work-card-visual visual-b"></div>
+                    <div class="work-card-info">
+                        <h3>[Client / brand name]</h3>
+                        <p>[One line about the result]</p>
+                    </div>
+                </article>
+
+                <article class="work-card size-md" data-category="marketing" data-tag="red"
+                    data-title="[Client / brand name]" data-desc="[What you did for them — platforms, campaigns, and the result you drove.]">
+                    <div class="work-card-top">
+                        <span class="tag tag-red">Digital Marketing</span>
+                        <span class="work-arrow">↗</span>
+                    </div>
+                    <div class="work-card-visual visual-a"></div>
+                    <div class="work-card-info">
+                        <h3>[Client / brand name]</h3>
+                        <p>[One line about the result]</p>
+                    </div>
+                </article>
+
+                <article class="work-card size-sm" data-category="marketing" data-tag="red"
+                    data-title="[Client / brand name]" data-desc="[What you did for them — platforms, campaigns, and the result you drove.]">
+                    <div class="work-card-top">
+                        <span class="tag tag-red">Digital Marketing</span>
+                        <span class="work-arrow">↗</span>
+                    </div>
+                    <div class="work-card-visual visual-c"></div>
+                    <div class="work-card-info">
+                        <h3>[Client / brand name]</h3>
+                        <p>[One line about the result]</p>
+                    </div>
+                </article>
+
+                <!-- PHOTO EDITING -->
+
+                <article class="work-card size-sm gallery-card" data-category="photo" data-tag="purple">
+                    <div class="work-card-top">
+                        <span class="tag tag-purple">Photo Editing</span>
+                    </div>
+                    <div class="gallery-thumb">
+                        <img src="work/photo-1.jpg" alt="[Photo edit caption]">
+                    </div>
+                    <p class="gallery-caption">[Short caption]</p>
+                </article>
+
+                <article class="work-card size-sm gallery-card" data-category="photo" data-tag="purple">
+                    <div class="work-card-top">
+                        <span class="tag tag-purple">Photo Editing</span>
+                    </div>
+                    <div class="gallery-thumb">
+                        <img src="work/photo-2.jpg" alt="[Photo edit caption]">
+                    </div>
+                    <p class="gallery-caption">[Short caption]</p>
+                </article>
+
+                <article class="work-card size-sm gallery-card" data-category="photo" data-tag="purple">
+                    <div class="work-card-top">
+                        <span class="tag tag-purple">Photo Editing</span>
+                    </div>
+                    <div class="gallery-thumb">
+                        <img src="work/photo-3.jpg" alt="[Photo edit caption]">
+                    </div>
+                    <p class="gallery-caption">[Short caption]</p>
+                </article>
+
+                <article class="work-card size-sm gallery-card" data-category="photo" data-tag="purple">
+                    <div class="work-card-top">
+                        <span class="tag tag-purple">Photo Editing</span>
+                    </div>
+                    <div class="gallery-thumb">
+                        <img src="work/photo-4.jpg" alt="[Photo edit caption]">
+                    </div>
+                    <p class="gallery-caption">[Short caption]</p>
+                </article>
+
+                <!-- VIDEO EDITING -->
+
+                <article class="work-card size-md gallery-card" data-category="video" data-tag="green">
+                    <div class="work-card-top">
+                        <span class="tag tag-green">Video Editing</span>
+                    </div>
+                    <div class="gallery-thumb">
+                        <img src="work/video-1.jpg" alt="[Video edit caption]">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <p class="gallery-caption">[Short caption]</p>
+                </article>
+
+                <article class="work-card size-md gallery-card" data-category="video" data-tag="green">
+                    <div class="work-card-top">
+                        <span class="tag tag-green">Video Editing</span>
+                    </div>
+                    <div class="gallery-thumb">
+                        <img src="work/video-2.jpg" alt="[Video edit caption]">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <p class="gallery-caption">[Short caption]</p>
+                </article>
+
+                <article class="work-card size-sm gallery-card" data-category="video" data-tag="green">
+                    <div class="work-card-top">
+                        <span class="tag tag-green">Video Editing</span>
+                    </div>
+                    <div class="gallery-thumb">
+                        <img src="work/video-3.jpg" alt="[Video edit caption]">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <p class="gallery-caption">[Short caption]</p>
                 </article>
 
             </div>
@@ -283,7 +414,7 @@
 
                         <div class="fact-row">
                             <span>Also building</span>
-                            <span>Gharana Junction, Balmukund Hargobind</span>
+                            <span>Gharana Junction, Growth Bee</span>
                         </div>
 
                     </div>
@@ -335,6 +466,61 @@
         </section>
 
 
+        <!-- CERTIFICATES -->
+        <section class="panel" data-panel="certificates">
+
+            <div class="panel-head">
+                <span class="eyebrow">Credentials</span>
+                <h2>Certificates &amp;<br>courses.</h2>
+            </div>
+
+            <div class="cert-grid">
+
+                <article class="cert-card">
+                    <div class="cert-thumb">
+                        <img src="certs/certificate-1.jpg" alt="[Certificate name]">
+                    </div>
+                    <div class="cert-info">
+                        <h3>[Certificate name]</h3>
+                        <p>[Issuer] · [Year]</p>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <div class="cert-thumb">
+                        <img src="certs/certificate-2.jpg" alt="[Certificate name]">
+                    </div>
+                    <div class="cert-info">
+                        <h3>[Certificate name]</h3>
+                        <p>[Issuer] · [Year]</p>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <div class="cert-thumb">
+                        <img src="certs/certificate-3.jpg" alt="[Certificate name]">
+                    </div>
+                    <div class="cert-info">
+                        <h3>[Certificate name]</h3>
+                        <p>[Issuer] · [Year]</p>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <div class="cert-thumb">
+                        <img src="certs/certificate-4.jpg" alt="[Certificate name]">
+                    </div>
+                    <div class="cert-info">
+                        <h3>[Certificate name]</h3>
+                        <p>[Issuer] · [Year]</p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
         <!-- CONTACT -->
         <section class="panel" data-panel="contact">
 
@@ -347,7 +533,7 @@
                 </h2>
 
                 <a href="mailto:hello@example.com" class="contact-email">
-                    tanmay2005jain@gmail.com
+                    hello@example.com
                 </a>
 
                 <div class="contact-links">
@@ -365,6 +551,17 @@
         </section>
 
     </main>
+
+
+    <!-- ======================================
+         IMAGE LIGHTBOX
+    ======================================= -->
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">Close ✕</button>
+        <img src="" alt="" id="lightboxImg">
+        <p id="lightboxCaption"></p>
+    </div>
 
 
     <!-- ======================================
@@ -391,3 +588,4 @@
 
 </body>
 </html>
+
