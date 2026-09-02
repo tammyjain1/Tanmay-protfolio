@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanmay Jain — Digital Designer</title>
+<meta name="description" content="Tanmay Jain — Digital Designer & Creative Developer">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ======================================
+         BOOT SCREEN
+    ======================================= -->
+
+    <div class="boot" id="boot">
+        <div class="boot-line" data-text="establishing connection"></div>
+        <div class="boot-line" data-text="loading profile: tanmay jain"></div>
+        <div class="boot-line" data-text="rendering interface"></div>
+        <div class="boot-bar"><div class="boot-bar-fill" id="bootFill"></div></div>
+    </div>
+
+
+    <!-- ======================================
+         SIDEBAR / RAIL
+    ======================================= -->
+
+    <aside class="rail">
+
+        <div class="rail-top">
+            <a href="#" class="rail-logo" data-panel-link="home">
+                TJ<span>®</span>
+            </a>
+            <span class="rail-tag">Portfolio / 2026</span>
+        </div>
+
+        <nav class="rail-nav" id="railNav">
+            <button class="rail-item active" data-panel-link="home">
+                <span class="rail-dot"></span> Home
+            </button>
+            <button class="rail-item" data-panel-link="work">
+                <span class="rail-dot"></span> Work
+            </button>
+            <button class="rail-item" data-panel-link="about">
+                <span class="rail-dot"></span> About
+            </button>
+            <button class="rail-item" data-panel-link="skills">
+                <span class="rail-dot"></span> Skills
+            </button>
+            <button class="rail-item" data-panel-link="contact">
+                <span class="rail-dot"></span> Contact
+            </button>
+        </nav>
+
+        <div class="rail-bottom">
+
+            <div class="rail-readout">
+                <span class="readout-label">Local time</span>
+                <span class="readout-value" id="clockValue">--:--:--</span>
+            </div>
+
+            <div class="rail-readout">
+                <span class="readout-label">Status</span>
+                <span class="readout-value status">
+                    <span class="status-dot"></span> Available for work
+                </span>
+            </div>
+
+            <div class="rail-socials">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Behance</a>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ======================================
+         STAGE
+    ======================================= -->
+
+    <main class="stage" id="stage">
+
+        <!-- HOME -->
+        <section class="panel active" data-panel="home">
+
+            <div class="home-grid">
+
+                <div class="intro-card">
+
+                    <span class="eyebrow">Digital designer &amp; creative developer</span>
+
+                    <h1 class="intro-title">
+                        Tanmay<br>Jain.
+                    </h1>
+
+                    <p class="intro-copy">
+                        I design and build digital experiences —
+                        websites, brand systems and interfaces —
+                        for people who care about the details.
+                        Currently based in Cuttack, India.
+                    </p>
+
+                    <div class="intro-actions">
+                        <button class="btn-primary" data-panel-link="work">
+                            See the work
+                        </button>
+                        <button class="btn-ghost" data-panel-link="contact">
+                            Get in touch
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="signal-card">
+
+                    <div class="signal-row">
+                        <span class="signal-label">Focus</span>
+                        <span class="signal-value">
+                            <span id="typewriter">Web Design</span><span class="cursor-blink">|</span>
+                        </span>
+                    </div>
+
+                    <svg class="signal-wave" viewBox="0 0 300 60" preserveAspectRatio="none">
+                        <path id="wavePath" d="M0,30 Q37.5,10 75,30 T150,30 T225,30 T300,30"
+                              fill="none" stroke="var(--green)" stroke-width="1.5"/>
+                    </svg>
+
+                    <div class="signal-stats">
+                        <div class="signal-stat">
+                            <strong>03+</strong>
+                            <span>Ventures shaped</span>
+                        </div>
+                        <div class="signal-stat">
+                            <strong>B.Com</strong>
+                            <span>ASBM University</span>
+                        </div>
+                        <div class="signal-stat">
+                            <strong>IN</strong>
+                            <span>Cuttack, Odisha</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WORK -->
+        <section class="panel" data-panel="work">
+
+            <div class="panel-head">
+                <span class="eyebrow">Selected work</span>
+                <h2>Things I've built.</h2>
+            </div>
+
+            <div class="work-grid">
+
+                <article class="work-card size-lg" data-tag="green"
+                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+                    <div class="work-card-top">
+                        <span class="tag tag-green">Web Design</span>
+                        <span class="work-arrow">↗</span>
+                    </div>
+                    <div class="work-card-visual visual-a"></div>
+                    <div class="work-card-info">
+                        <h3>[Project name]</h3>
+                        <p>[Short one-line description]</p>
+                    </div>
+                </article>
+
+                <article class="work-card size-sm" data-tag="red"
+                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+                    <div class="work-card-top">
+                        <span class="tag tag-red">Brand Identity</span>
+                        <span class="work-arrow">↗</span>
+                    </div>
+                    <div class="work-card-visual visual-b"></div>
+                    <div class="work-card-info">
+                        <h3>[Project name]</h3>
+                        <p>[Short one-line description]</p>
+                    </div>
+                </article>
+
+                <article class="work-card size-sm" data-tag="purple"
+                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+                    <div class="work-card-top">
+                        <span class="tag tag-purple">Web App</span>
+                        <span class="work-arrow">↗</span>
+                    </div>
+                    <div class="work-card-visual visual-c"></div>
+                    <div class="work-card-info">
+                        <h3>[Project name]</h3>
+                        <p>[Short one-line description]</p>
+                    </div>
+                </article>
+
+                <article class="work-card size-md" data-tag="green"
+                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+                    <div class="work-card-top">
+                        <span class="tag tag-green">Social / Content</span>
+                        <span class="work-arrow">↗</span>
+                    </div>
+                    <div class="work-card-visual visual-d"></div>
+                    <div class="work-card-info">
+                        <h3>[Project name]</h3>
+                        <p>[Short one-line description]</p>
+                    </div>
+                </article>
+
+                <article class="work-card size-md" data-tag="purple"
+                    data-title="[Project name]" data-desc="[One or two lines about this project — what it was, who it was for, and what you did.]">
+                    <div class="work-card-top">
+                        <span class="tag tag-purple">Motion</span>
+                        <span class="work-arrow">↗</span>
+                    </div>
+                    <div class="work-card-visual visual-e"></div>
+                    <div class="work-card-info">
+                        <h3>[Project name]</h3>
+                        <p>[Short one-line description]</p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="panel" data-panel="about">
+
+            <div class="panel-head">
+                <span class="eyebrow">About me</span>
+                <h2>A little about<br>how I work.</h2>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-photo">
+                    [Photo]
+                </div>
+
+                <div class="about-body">
+
+                    <p class="about-lead">
+                        I'm Tanmay — a digital designer who likes
+                        turning simple ideas into experiences with
+                        personality.
+                    </p>
+
+                    <p>
+                        From websites and brand identities to social
+                        media design and creative direction, I care
+                        about the small decisions that make a product
+                        feel considered rather than default.
+                    </p>
+
+                    <div class="about-facts">
+
+                        <div class="fact-row">
+                            <span>Based in</span>
+                            <span>Cuttack, Odisha</span>
+                        </div>
+
+                        <div class="fact-row">
+                            <span>Studying</span>
+                            <span>B.Com, ASBM University</span>
+                        </div>
+
+                        <div class="fact-row">
+                            <span>Currently</span>
+                            <span>Freelance design &amp; development</span>
+                        </div>
+
+                        <div class="fact-row">
+                            <span>Also building</span>
+                            <span>Gharana Junction, Growth Bee</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+        <section class="panel" data-panel="skills">
+
+            <div class="panel-head">
+                <span class="eyebrow">Capabilities</span>
+                <h2>What I bring<br>to a project.</h2>
+            </div>
+
+            <div class="skills-list">
+
+                <div class="skill-row" data-level="92" data-color="green">
+                    <span class="skill-name">Web Design</span>
+                    <div class="skill-bar"><div class="skill-fill"></div></div>
+                </div>
+
+                <div class="skill-row" data-level="85" data-color="red">
+                    <span class="skill-name">Brand &amp; Visual Identity</span>
+                    <div class="skill-bar"><div class="skill-fill"></div></div>
+                </div>
+
+                <div class="skill-row" data-level="80" data-color="purple">
+                    <span class="skill-name">Front-End Development</span>
+                    <div class="skill-bar"><div class="skill-fill"></div></div>
+                </div>
+
+                <div class="skill-row" data-level="88" data-color="green">
+                    <span class="skill-name">Social &amp; Content Design</span>
+                    <div class="skill-bar"><div class="skill-fill"></div></div>
+                </div>
+
+                <div class="skill-row" data-level="75" data-color="purple">
+                    <span class="skill-name">Motion &amp; Interaction</span>
+                    <div class="skill-bar"><div class="skill-fill"></div></div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="panel" data-panel="contact">
+
+            <div class="contact-wrap">
+
+                <span class="eyebrow">Have a project?</span>
+
+                <h2 class="contact-title">
+                    Let's make<br>something <span>great.</span>
+                </h2>
+
+                <a href="mailto:hello@example.com" class="contact-email">
+                    hello@example.com
+                </a>
+
+                <div class="contact-links">
+                    <a href="#">Instagram <span>↗</span></a>
+                    <a href="#">LinkedIn <span>↗</span></a>
+                    <a href="#">Behance <span>↗</span></a>
+                </div>
+
+                <div class="contact-footer">
+                    © 2026 Tanmay Jain
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         PROJECT DETAIL OVERLAY
+    ======================================= -->
+
+    <div class="detail-overlay" id="detailOverlay">
+        <div class="detail-panel">
+            <button class="detail-close" id="detailClose">Close ✕</button>
+            <span class="detail-tag" id="detailTag">Web Design</span>
+            <h3 id="detailTitle">[Project name]</h3>
+            <p id="detailDesc">[Project description]</p>
+        </div>
+    </div>
+
+
+    <!-- ======================================
+         GSAP
+    ======================================= -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
