@@ -243,7 +243,38 @@ function animateSkillBars() {
 
 
 /* =====================================================
-   WORK CARD DETAIL OVERLAY
+   WORK FILTERS
+===================================================== */
+
+const filterChips = document.querySelectorAll(".filter-chip");
+const workCards = document.querySelectorAll(".work-card");
+
+filterChips.forEach((chip) => {
+
+    chip.addEventListener("click", () => {
+
+        filterChips.forEach((c) => c.classList.remove("active"));
+        chip.classList.add("active");
+
+        const filter = chip.dataset.filter;
+
+        workCards.forEach((card) => {
+
+            const match =
+                filter === "all" ||
+                card.dataset.category === filter;
+
+            card.classList.toggle("is-hidden", !match);
+
+        });
+
+    });
+
+});
+
+
+/* =====================================================
+   WORK CARD DETAIL OVERLAY (text projects)
 ===================================================== */
 
 const detailOverlay = document.querySelector("#detailOverlay");
@@ -251,22 +282,6 @@ const detailClose = document.querySelector("#detailClose");
 const detailTitle = document.querySelector("#detailTitle");
 const detailDesc = document.querySelector("#detailDesc");
 const detailTag = document.querySelector("#detailTag");
-
-document.querySelectorAll(".work-card").forEach((card) => {
-
-    card.addEventListener("click", () => {
-
-        const tagText = card.querySelector(".tag")?.textContent || "";
-
-        detailTitle.textContent = card.dataset.title || "";
-        detailDesc.textContent = card.dataset.desc || "";
-        detailTag.textContent = tagText;
-
-        detailOverlay.classList.add("active");
-
-    });
-
-});
 
 function closeDetail() {
     detailOverlay?.classList.remove("active");
@@ -278,6 +293,86 @@ detailOverlay?.addEventListener("click", (e) => {
     if (e.target === detailOverlay) closeDetail();
 });
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeDetail();
+
+/* =====================================================
+   LIGHTBOX (photo / video / certificate cards)
+===================================================== */
+
+const lightbox = document.querySelector("#lightbox");
+const lightboxImg = document.querySelector("#lightboxImg");
+const lightboxCaption = document.querySelector("#lightboxCaption");
+const lightboxClose = document.querySelector("#lightboxClose");
+
+function openLightbox(src, caption) {
+
+    lightboxImg.src = src;
+    lightboxImg.alt = caption || "";
+    lightboxCaption.textContent = caption || "";
+
+    lightbox.classList.add("active");
+
+}
+
+function closeLightbox() {
+    lightbox?.classList.remove("active");
+}
+
+lightboxClose?.addEventListener("click", closeLightbox);
+
+lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
 });
+
+
+/* =====================================================
+   WIRE UP: work cards + certificate cards
+===================================================== */
+
+document.querySelectorAll(".work-card").forEach((card) => {
+
+    card.addEventListener("click", () => {
+
+        if (card.classList.contains("gallery-card")) {
+
+            const img = card.querySelector(".gallery-thumb img");
+            const caption = card.querySelector(".gallery-caption")?.textContent;
+
+            openLightbox(img?.src, caption);
+
+        } else {
+
+            const tagText = card.querySelector(".tag")?.textContent || "";
+
+            detailTitle.textContent = card.dataset.title || "";
+            detailDesc.textContent = card.dataset.desc || "";
+            detailTag.textContent = tagText;
+
+            detailOverlay.classList.add("active");
+
+        }
+
+    });
+
+});
+
+document.querySelectorAll(".cert-card").forEach((card) => {
+
+    card.addEventListener("click", () => {
+
+        const img = card.querySelector(".cert-thumb img");
+        const name = card.querySelector(".cert-info h3")?.textContent;
+        const meta = card.querySelector(".cert-info p")?.textContent;
+
+        openLightbox(img?.src, `${name} — ${meta}`);
+
+    });
+
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeDetail();
+        closeLightbox();
+    }
+});
+
